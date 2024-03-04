@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Неизвестно]</title>
+    <style>
+        html{
+            height: 100vh;
+        }
+        body{
+            padding-top: 32px;
+            padding-bottom: 32px;
+            margin: 0;
+            padding-left: 256px;
+            padding-right: 256px;
+            background-color: rgb(45, 43, 43);
+            font-size: 1.25rem;
+            font-family: sans-serif;
+            color: whitesmoke;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .main-text{
+            color: whitesmoke;
+            font-size: 1.25rem;
+            font-family: sans-serif;
+        }
+        .main-block{
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgb(80, 79, 79);
+            border-radius: 4px;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .main-block-header{
+            display: flex;
+            height: 64px;
+            border-bottom: 1px solid rgb(80, 79, 79);
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            color: whitesmoke;
+        }
+        .main-block-footer{
+            padding: 16px;
+            gap: 8px;
+            display: flex;
+            height: 40px;
+            border-top: 1px solid rgb(80, 79, 79);
+            text-align: center;
+            justify-content: center;
+            align-items: stretch;
+            color: whitesmoke;
+
+        }
+        .main-block-content{
+            display: flex;
+            gap: 8px;
+            flex-direction: column;
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+        }
+        .send-button{
+            color: whitesmoke;
+            background-color: rgb(47, 177, 69);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0px 10px 15px -14px rgba(0,0,0,0.1);
+            border: none;
+        }
+        .send-button:hover{
+            background-color: rgb(29, 128, 60);
+        }
+        .send-field{
+            width: 100%;
+            background-color: transparent;
+            border: 1px solid rgb(80, 79, 79);
+            border-radius: 4px;
+            font-size: 1rem;
+            padding-left: 8px;
+            color: whitesmoke;
+        }
+        .send-field:focus{
+           outline: 1px solid rgb(99, 97, 97);
+        }
+        .message{
+            display: flex;
+            gap: 8px;
+            align-items: start;
+            max-width: 60%;
+        }
+        .message-right{
+            align-self: flex-end;
+        }
+        .message-img{
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+        .message-text{
+            background-color: rgb(80, 79, 79);
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 1rem;
+            box-shadow: 0px 10px 15px -14px rgba(0,0,0,0.1);
+        }
+        #hidden-user{
+            display: none;
+        }
+        #hidden-mishka{
+            display: none;
+        }
+        #hidden-mishka2{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-block">
+        <div class="main-block-header">
+            Тайны Аватарии
+        </div>
+        <div class="main-block-content">
+            <div class="message message-right">
+                <div class="message-text">
+                    <i>Пользователь Илья вступил в беседу</i>
+                </div>
+                <img src="person.jpg" class="message-img">
+            </div>
+            <div class="message">
+                <img src="freddy.jpg" class="message-img">
+                <div class="message-text">
+                    Ну здравствуй, Ильич...
+                </div>
+            </div>
+            <div class="message">
+                <img src="freddy.jpg" class="message-img">
+                <div class="message-text">
+                    Прошло много времени с тех пор, как я начал следить за тобой. Я знаю все о тебе и твоих предпочтениях. Я записал на пленку каждый день твоей жизни с помощью скрытых камер. И сегодня я решил выйти из тени.
+                </div>
+            </div>
+            <div class="message">
+                <img src="freddy.jpg" class="message-img">
+                <div class="message-text">
+                   Охолера, Я Мишка Фреде. Я твой самый страшный кошмар. Но не бойся, сегодня обойдемся без крови. В конце концов у меня есть особая персона на крайний случай...
+                </div>
+            </div>
+            <div class="message">
+                <img src="freddy.jpg" class="message-img">
+                <div class="message-text">
+                  Предлагаю тебе сыграть в игру. Ты будешь спускаться в ад, но с каждым уровнем будет становиться сложнее и сложнее. Если сможешь дойти до конца, тебя ждет заманчивая награда.
+                </div>
+            </div>
+            <div class="message">
+                <img src="freddy.jpg" class="message-img">
+                <div class="message-text">
+                    Ну что, ты согласен, Ильич?
+                </div>
+            </div>
+            <div class="message message-right" id="hidden-user">
+                <div class="message-text">
+                    Пользователь Илья вступил в беседу
+                </div>
+                <img src="person.jpg" class="message-img">
+            </div>
+            <div class="message" id="hidden-mishka">
+                <img src="freddy.jpg" class="message-img">
+                <div class="message-text">
+                    Отлично, Ильич! Не задерживайся и переходи по ссылке. Помни: играй по правилам... 
+                </div>
+            </div>
+            <div class="message" id="hidden-mishka2">
+                <img src="freddy.jpg" class="message-img">
+                <div class="message-text">
+                    <a href="entrance.html" style="color: rgb(253, 63, 63);">http://vdovins-bastion.pain</a>
+                </div>
+            </div>
+        </div>
+        <div class="main-block-footer">
+            <input type="text" class="send-field" placeholder="Введите сообщение..." id="send-field">
+            <button class="send-button" id="send-button">Отправить</button>
+        </div>
+    </div>
+    <script>
+        var mess = "Да, я готов, Мишка Фреде...";
+        var sentField = document.getElementById("send-field");
+        var sendButton = document.getElementById("send-button");
+        var mesUser = document.getElementById("hidden-user");
+        var mesMishka = document.getElementById("hidden-mishka");
+        var mesMishka2 = document.getElementById("hidden-mishka2");
+
+        sentField.addEventListener("input", (e)=>{
+            var len = e.target.value.length;
+            sentField.value = mess.substring(0, len);
+        })
+        sendButton.addEventListener("click", (e)=>{
+            mesUser.style.display = "flex";
+            var text = mesUser.childNodes[1];
+            text.textContent = sentField.value;
+            setTimeout(()=>{
+                mesMishka.style.display = "flex";
+                if (sentField.value.length < 2){
+                    var text = mesMishka.childNodes[3];
+                    text.textContent = "Молчание знак согласия. "+ text.textContent;
+                    text.innerHtml
+                    console.log(text);
+                }
+                setTimeout(()=>{
+                    mesMishka2.style.display ="flex";
+                },1500)
+            }, 3000);
+        })
+    </script>
+</body>
+</html>

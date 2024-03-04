@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Неизвестно]</title>
+    <style>
+        body{
+            padding-top: 64px;
+            padding-left: 256px;
+            padding-right: 256px;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+        }
+        .main-img{
+            width: 256px;
+            height: 256px;
+        }
+        .main-text{
+            color: whitesmoke;
+            font-size: 1.5rem;
+            font-family: sans-serif;
+        }
+        .answers{
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .answer-button{
+            background-color: transparent;
+            color: whitesmoke;
+            font-size: 1.5rem;
+            font-family: sans-serif;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <img src="normal_face.jpg" class="main-img" id="img">
+    <p class="main-text">
+        <span style="color: #F36223;">Ough...</span><span style="color: #ff8c69;">ough...</span> 
+    </p>
+    <p class="main-text" style="color: #9F8170;">
+        7ziVysqO6Qf5/4pm6SmRmjF2hoLxdOZFle5MpRzCogA=
+    </p>
+    <p class="main-text" style="color: #060606;">
+       Truth in colors
+    </p>
+    <input type="text" id="answer-field">
+    <button id="answer-button">
+        Глубже, ещё глубже...
+    </button>
+    <script>
+        const kek = () => {
+            setTimeout(() => {
+            img.src = "uncanny.jpg";
+            console.log("ddd");
+            setTimeout(()=>{
+                img.src = "normal_face.jpg";
+                kek();
+            },
+            100);  
+        }, Math.random()*(20000 - 5000) + 5000);
+        }
+        var img = document.getElementById("img");
+        var answerButton = document.getElementById("answer-button");
+        var answerField = document.getElementById("answer-field");
+        answerButton.addEventListener('click',(e) =>{
+            var value = answerField.value;
+            if (value == "МогучийНегр54"){
+                window.location.href = "CYTycsFJJxdQ.html";
+            }
+        });
+        kek();
+    </script>
+</body>
+</html>

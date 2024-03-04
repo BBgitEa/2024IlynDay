@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Неизвестно]</title>
+    <style>
+        body{
+            padding-top: 64px;
+            padding-left: 256px;
+            padding-right: 256px;
+            background-color: rgb(45, 43, 43);
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-family: sans-serif;
+        }
+        .main-img{
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+        }
+        .main-text{
+            color: whitesmoke;
+            font-size: 1.25rem;
+            font-family: sans-serif;
+        }
+        .accept-button{
+            color: whitesmoke;
+            background-color: rgb(47, 177, 69);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1.25rem;
+            cursor: pointer;
+            box-shadow: 0px 10px 15px -14px rgba(0,0,0,0.1);
+            text-decoration: none;
+        }
+        .accept-button:hover{
+            background-color: rgb(29, 128, 60);
+        }
+        .prize{
+            opacity: 0;
+        }
+        .prize-appear{
+            animation-name: appear;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+        .prize-disappear{
+            animation-name: disappear;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes appear {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        @keyframes disappear {
+            from{
+                opacity: 1;
+            }
+            to{
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="freddy.jpg" class="main-img">
+    <p class="main-text">
+        Поздравляю, Ильич! Вы прошли игру и получили приз! Ура!
+    </p>
+    <button class="accept-button" onclick="clicked()">
+        Получить приз
+    </button>
+    <img src="prize.gif", class="prize" id="prize" width="256">
+    <script>
+        var a = 0;
+        var prize = document.getElementById("prize");
+        var sound = new Audio("fnaf-hooray.mp3");
+        function clicked(){
+            if (a == 0){
+            a = 1;
+            prize.classList.add("prize-appear");
+            sound.play();
+            setTimeout(() => {
+                var hap = new Audio("happy.mp3");
+                hap.play();
+                setTimeout(() => {
+                    window.location.href ="https://boulderbugle.com/KlKAtd75";
+                }, 10000);
+            }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>

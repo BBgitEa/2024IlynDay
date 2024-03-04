@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Стадия 1 Малышарики]</title>
+    <style>
+        body{
+            padding-top: 64px;
+            padding-left: 256px;
+            padding-right: 256px;
+            background-image: url("blue_sky.png");
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+            color: rgb(55, 55, 55);
+            font-size: 1.5rem;
+            font-family: sans-serif;
+        }
+        .main-img{
+            width: 380px;
+            height: 256px;
+        }
+        .main-text{
+            color: rgb(55, 55, 55);
+            font-size: 1.5rem;
+            font-family: sans-serif;
+        }
+        .answers{
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .answer-button{
+            background-color: transparent;
+            color: rgb(63, 63, 63);
+            font-size: 1.5rem;
+            font-family: sans-serif;
+            padding: 8px;
+        }
+        button{
+            background-color: black;
+            color: rgb(63, 63, 63);
+            font-size: 1.5rem;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <button style="position: absolute; left: 0; top:0; height: 100%; width: 100%; z-index: 10;" id="start">
+        Начать!
+    </button>
+    <p>Стадия 1 - Викторина!</p>
+    <img src="puppies.jpg" class="main-img">
+    <p class="main-text">
+       Какие милые создания! Как же они называются? :D
+    </p>
+    <img src="smile.gif" style="position: absolute; left: 900px; top: 270px" width="128px">
+    <img src="cat.gif" style="position: absolute; left: 20px; top: 760px" width="128px">
+    <img src="cat.gif" style="position: absolute; left: 148px; top: 760px" width="128px">
+    <img src="cat.gif" style="position: absolute; left: 276px; top: 760px" width="128px">
+    <img src="flowers.png" style="position: absolute; right: 300px; top: 700px" width="256px">
+    <label for="cats">Котятеньки</label>
+    <input type="checkbox" id="cats">
+    <label for="dogs">Щенятенки</label>
+    <input type="checkbox" id="dogs">
+    <label for="crocs">Крокодильчики</label>
+    <input type="checkbox" id="crocs">
+    <label for="mem">Мясное сырье</label>
+    <input type="checkbox" id="mem">
+
+    <label for="text">Полное имя Осаса(English)</label>
+    <input type="text" value="Киборг Глеб" id="text" style="width: 400px;">
+    <button id="send" style="color: gold;">Угадать!</button>
+    <script>
+        var sendButton = document.getElementById("send");
+        var cats = document.getElementById("cats");
+        var dogs = document.getElementById("dogs");
+        var crocs = document.getElementById("crocs");
+        var mem = document.getElementById("mem");
+        var text = document.getElementById("text");
+        var fullName = "Uvuvwevwevwe Onyetenyevwe Ugwemuhwem Osas";
+        const clickSound = new Audio('babyshark.mp3');
+        clickSound.loop = true
+        var start = document.getElementById("start");
+        start.addEventListener("click", (e)=>{
+            start.parentNode.removeChild(start);
+            clickSound.play();
+        })
+        sendButton.addEventListener("click", (e)=>{
+            if(dogs.checked && mem.checked && text.value == fullName)
+            {
+                console.log("success!");
+                window.location.href = "Nu2sCNTqfX.html";
+            }
+        })
+    </script>
+</body>
+</html>

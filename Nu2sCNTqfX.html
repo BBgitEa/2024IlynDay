@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Стад2п]</title>
+    <style>
+        html{
+            height: 100vh;
+        }
+        body{
+            margin: 0;
+            box-sizing: border-box;
+            background-image: url("minecraft.jpg");
+            background-size: cover;
+            color: rgb(255, 255, 255);
+            font-size: 1.5rem;
+            font-family: sans-serif;
+            height: 100%;
+            overflow: hidden;
+        }
+        .main-img{
+            width: 380px;
+            height: 256px;
+            animation-name: slidein;
+            animation-duration: 5s;
+            cursor: pointer;
+            z-index: 10;
+        }
+        #tint{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: rgb(255, 0, 0);
+            opacity: 0;
+            z-index: 0;
+        }
+        .content{
+            padding-top: 64px;
+            padding-left: 256px;
+            padding-right: 256px;
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+        }
+        #counter{
+            z-index: 10;
+        }
+        @keyframes slidein {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div id="tint"> 
+
+    </div>
+    <div id="fires" style="position: absolute;">
+        <img src="firegif.gif" id="firegif" style="position: absolute; display: none;">
+    </div>
+    <div class="content">
+        <p>Ста.Дя 2</p>
+        <img src="firehole.png" class="main-img" id="fire">
+        <p class="main-text">
+            FiRe iN tHe HOLE!
+        </p>
+        <p id="counter" style="font-size: 6rem;">0</p>
+    </div>
+    <script>
+        var sounds = []
+        var count = 0;
+        var amp = 0.2;
+        var ready = false;
+        var fire = document.getElementById("fire");
+        var fires = document.getElementById("fires");
+        var counter = document.getElementById("counter");
+        var gif = document.getElementById("firegif");
+        var body = document.body;
+        var tint = document.getElementById("tint");
+        fire.addEventListener("click", (e)=>{
+            if(ready){
+            count+=1;
+            counter.textContent = String(count);
+            var sound = new Audio("firehole.mp3");
+            sound.volume = 0.3 + count/300;
+            sound.play();
+            sounds.push(sound);
+            var shake =  [{ transform: `translate(${2*count*amp}px, ${count*amp}px) rotate(0deg)` },
+            { transform: `translate(${-count*amp}px, ${-2*count*amp}px) rotate(${-1*count*amp}deg)` },
+            { transform: `translate(${-3*count*amp}px, 0px) rotate(1deg)` },
+            { transform: "translate(0px, 2px) rotate(0deg)" },
+            { transform: "translate(1px, -1px) rotate(1deg)" },
+            { transform: "translate(-1px, 2px) rotate(-1deg)" },
+            { transform: "translate(-3px, 1px) rotate(0deg)" },
+            { transform: "translate(2px, 1px) rotate(-1deg)" },
+            { transform: "translate(-1px, -1px) rotate(1deg)" },
+            { transform: "translate(2px, 2px) rotate(0deg)" },
+            { transform: "translate(1px, -2px) rotate(-1deg)" }]
+            fire.animate(shake, {duration: 300, iterations: 1});
+            if(count>50){
+                fire.src = "insane.png";
+            }
+            if(count>100){
+                fire.src = "extreme.png";
+            }
+            if(count%5){
+                var newgif  = gif.cloneNode();
+                newgif.style.display = "block";
+                newgif.style.left = `${Math.random() * 1000}px`;
+                newgif.style.top = `${Math.random() * 1000}px`;
+                newgif.style.width = `${Math.random() * (1024 - 128) + 128}px`;
+                fires.appendChild(newgif);
+            }
+            if(count>160){
+                console.log(sounds);
+                fire.src = "uncanny.jpg";
+                fire.style.width = "auto";
+                fire.style.height = "auto";
+                sounds.forEach(element => {
+                    element.pause();
+                });
+                document.querySelectorAll("#firegif").forEach(el => {
+                    el.parentNode.removeChild(el);
+                })
+                tint.style.opacity = "1";
+                tint.style.backgroundColor = "black";
+                var sound2 = new Audio("sudden.mp3");
+                sound2.play();
+                ready = false;
+                setTimeout(() => {
+                    window.location.href = "SyO0I4sTt3.html"; 
+                }, 500);
+
+            }
+            var op = Number(tint.style.opacity);
+            tint.style.opacity = String(op+0.005);
+            }
+        })
+
+        setTimeout(()=>{ready=true},5000);
+    </script>
+</body>
+</html>
